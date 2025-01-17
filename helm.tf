@@ -14,7 +14,7 @@ resource "helm_release" "nginx-hello" {
   name        = "nginx-hello"
   namespace   = "default"
   repository  = "oci://registry-1.docker.io/eayar"
-  version     = "0.3.0"
+  version     = "0.2.0"
   chart       = "nginx-hello"
 
   depends_on = [ module.eks ]
