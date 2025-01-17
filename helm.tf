@@ -25,5 +25,3 @@ resource "helm_release" "caller" {
   version     = "0.1.0"
   chart       = "caller"
 }
-
-
