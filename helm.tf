@@ -12,9 +12,9 @@ provider "helm" {
 
 resource "helm_release" "nginx-hello" {
   name        = "nginx-hello"
-  namespace   = "default"
+  namespace   = var.namespace
   repository  = "oci://registry-1.docker.io/eayar"
-  version     = "0.2.0"
+  version     = var.nginx_version
   chart       = "nginx-hello"
 
   depends_on = [ module.eks ]
@@ -22,9 +22,9 @@ resource "helm_release" "nginx-hello" {
 
 resource "helm_release" "caller" {
   name        = "caller"
-  namespace   = "default"
+  namespace   = var.namespace
   repository  = "oci://registry-1.docker.io/eayar"
-  version     = "0.1.0"
+  version     = var.caller_version
   chart       = "caller"
 
   depends_on = [ module.eks ]
